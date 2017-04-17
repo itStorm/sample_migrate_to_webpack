@@ -24,6 +24,7 @@
         </div>
     </div>
 </div>
+<script src="/todo-app/dist/view.js"></script>
 <script src="/js/jquery-3.2.1.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/db.js"></script>
