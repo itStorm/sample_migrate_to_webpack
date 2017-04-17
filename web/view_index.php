@@ -85,7 +85,8 @@
         </div>
     </div>
 </div>
-
+<script src="/todo-app/dist/vendors.js"></script>
+<script src="/todo-app/dist/commons.js"></script>
 <script src="/todo-app/dist/home.js"></script>
 
 <script>

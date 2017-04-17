@@ -22,11 +22,22 @@ let config = {
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"
-        })
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "commons"
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "vendors",
+            minChunks: function (module, count) {
+                return module.context && module.context.indexOf("frontend/vendors_common") !== -1;
+            }
+        }),
     ],
     resolve: {
         modules: [
             path.resolve(__dirname, "frontend"),
+            path.resolve(__dirname, "frontend/vendors"),
+            path.resolve(__dirname, "frontend/vendors_common"),
             "node_modules"
         ],
         extensions: [".js", ".json"]
