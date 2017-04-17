@@ -10,9 +10,14 @@
   "author": "itStorm",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.4.0",
     "webpack": "^2.4.1"
   },
   "dependencies": {
+    "babel-runtime": "^6.23.0",
     "exports-loader": "^0.6.4",
     "expose-loader": "^0.7.3",
     "imports-loader": "^0.7.1"

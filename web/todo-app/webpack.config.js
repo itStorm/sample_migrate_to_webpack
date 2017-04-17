@@ -74,6 +74,22 @@ let config = {
                         options: '$'
                     }
                 ]
+            },
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: ['env'],
+                            cacheDirectory: true,
+                            plugins: [
+                                'transform-runtime'
+                            ]
+                        }
+                    }
+                ]
             }
         ]
     },
