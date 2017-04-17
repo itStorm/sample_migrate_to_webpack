@@ -1,6 +1,8 @@
 'use strict';
 
-require('jquery');
+require('bootstrap');
+require('flipcountdown');
+require('task');
 let db = require('db');
 
 $(function () {

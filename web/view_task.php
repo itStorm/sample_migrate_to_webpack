@@ -25,22 +25,5 @@
     </div>
 </div>
 <script src="/todo-app/dist/view.js"></script>
-<script src="/js/jquery-3.2.1.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/db.js"></script>
-<script>
-    $(function () {
-        var taskID = window.location.pathname.replace(/[\/]{2,}/g, '/').replace(/^\/|\/*$/g, '').split('/')[1];
-        var task = db.findById('tasks', taskID)
-        if (task) {
-            $('.task').find('.title').html('#' + task.id + ' ' + task.title);
-            $('.task').append(task.details);
-            $('.jumbotron').removeClass('hidden');
-        } else {
-            $('.error').html('Task #' + taskID + ' has not found!');
-            $('.error').removeClass('hidden');
-        }
-    });
-</script>
 </body>
 </html>

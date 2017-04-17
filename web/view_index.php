@@ -87,10 +87,6 @@
 </div>
 
 <script src="/todo-app/dist/home.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/jquery.flipcountdown.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/task.js"></script>
 
 <script>
     $(function () {
