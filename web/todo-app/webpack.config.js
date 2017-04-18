@@ -85,7 +85,8 @@ let config = {
                             presets: ['env'],
                             cacheDirectory: true,
                             plugins: [
-                                'transform-runtime'
+                                'transform-runtime',
+                                'syntax-dynamic-import'
                             ]
                         }
                     }
