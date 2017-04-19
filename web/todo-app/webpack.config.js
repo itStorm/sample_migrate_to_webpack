@@ -2,6 +2,10 @@
 
 const webpack = require('webpack');
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+// Отдельная экземпляр плагина ExtractTextPlugin для сборки bootstrap
+const bootstrapCSS = new ExtractTextPlugin('bootstrap.css');
 
 const dev = 'dev';
 const prod = 'prod';
@@ -57,7 +61,8 @@ let config = {
             minChunks: function (module, count) {
                 return module.context && module.context.indexOf("frontend/vendors_common") !== -1;
             }
-        })
+        }),
+        bootstrapCSS
     ],
     // Секция указывает, где искать модули, в частности относится к модулям entries
     resolve: {
@@ -126,9 +131,38 @@ let config = {
                     }
                 ]
             },
+            // Для сборки обычного css внутри модулей
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader']
+            },
+            // Bootstrap css собираем из исходников внутри модуля
+            {
+                test: /bootstrap\/less\/.*\.less$/i,
+                use: bootstrapCSS.extract({
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                minimize: NODE_ENV == prod
+                            }
+                        },
+                        {
+                            loader: 'less-loader'
+                        }
+                    ]
+                })
+            },
+            // Статический контент - будет скопирован в output.path, можно внести что угодно шрифты, картинки и т.д.
+            // все что есть в модуле и от чего он замисим
+            {
+                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[path]/[name].[ext]'
+                    }
+                }
             }
         ],
         // Данным параметром можно задать регулярное выражение для файлов которые не надо парсить
@@ -140,7 +174,7 @@ let config = {
     // !!! При включенном UglifyJSPlugin map файлы НЕ БУДУТ СОЗДАВАТЬСЯ
     devtool: NODE_ENV == dev ? 'cheap-inline-module-source-map' : 'source-map',
     // Работать в режиме watch, отслеживая сборку
-    // watch: NODE_ENV == dev
+    watch: NODE_ENV == dev
 };
 
 // Используем в prod режиме UglifyJSPlugin для минификации JS

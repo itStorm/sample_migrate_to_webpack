@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Todo list</title>
     <link rel="icon" href="data:;base64,=">
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/todo-app/dist/bootstrap.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
     <link href="/css/jquery.flipcountdown.css" rel="stylesheet">
 </head>
