@@ -1,9 +1,9 @@
 'use strict';
 
-require('bootstrap');
-require('flipcountdown');
-require('task');
-let db = require('db');
+import 'bootstrap';
+import 'flipcountdown';
+import 'task';
+import db from 'db';
 
 $(function () {
     function addTaskRow(task) {

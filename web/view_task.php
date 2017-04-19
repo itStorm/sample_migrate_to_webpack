@@ -6,7 +6,6 @@
     <link rel="icon" href="data:;base64,=">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/main.css" rel="stylesheet">
-    <link href="/css/task_view.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">

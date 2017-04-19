@@ -37,7 +37,7 @@ let config = {
         // Принцип примерно как у DefinePlugin, но данные переменные будут взяты из Environment.
         // В конретном примере если process.env.NODE_ENV не будет определен,
         // то будет использовваться переменная NODE_ENV.
-        // При компиляции эта перемена будет доступна как `process.env.NODE_ENV` внутри модулей
+        // При компиляции эта переменая будет доступна как `process.env.NODE_ENV` внутри модулей
         new webpack.EnvironmentPlugin({
             NODE_ENV: NODE_ENV
         }),
@@ -125,6 +125,10 @@ let config = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             }
         ],
         // Данным параметром можно задать регулярное выражение для файлов которые не надо парсить
@@ -136,7 +140,7 @@ let config = {
     // !!! При включенном UglifyJSPlugin map файлы НЕ БУДУТ СОЗДАВАТЬСЯ
     devtool: NODE_ENV == dev ? 'cheap-inline-module-source-map' : 'source-map',
     // Работать в режиме watch, отслеживая сборку
-    watch: NODE_ENV == dev
+    // watch: NODE_ENV == dev
 };
 
 // Используем в prod режиме UglifyJSPlugin для минификации JS

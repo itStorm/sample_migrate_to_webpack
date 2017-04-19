@@ -1,7 +1,8 @@
 'use strict';
 
-require('bootstrap');
-let db = require('db');
+import 'bootstrap';
+import './view.css'
+import db from 'db';
 
 $(function () {
     var taskID = window.location.pathname.replace(/[\/]{2,}/g, '/').replace(/^\/|\/*$/g, '').split('/')[1];
